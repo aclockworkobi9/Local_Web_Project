@@ -1,7 +1,7 @@
+
 # Local Web Project
 
 This repository contains a local web project setup using Vagrant for virtualization. It simplifies the setup process by utilizing Oracle VM Virtualbox, Vagrant, Git, Maven, and Corretto11jdk as prerequisites.
-
 
 ## Prerequisites
 
@@ -18,45 +18,46 @@ To streamline the installation process, you can use Chocolatey on Windows. Here'
 ```bash
 choco install virtualbox vagrant git maven amazoncorretto11
 ```
-## Setup diagram
+
+## Setup Diagram
 ![setup](https://github.com/aclockworkobi9/Local_Web_Project/assets/146419037/f909beb1-8f56-4b1e-a4da-8281b52c19e0)
-## Sequence of the setup
+
+## Sequence of the Setup
 ![sequence](https://github.com/aclockworkobi9/Local_Web_Project/assets/146419037/3d62b991-45ff-4a7a-be9b-b70743114f30)
 
 ## Getting Started
 
 To get started with this project, follow these steps:
 
-1. Clone this repository using Git:
+1. **Clone this repository using Git:**
 
 ```bash
 git clone https://github.com/aclockworkobi9/Local_Web_Project.git
 ```
 
-2. Navigate to the project directory:
+2. **Navigate to the project directory:**
 
 ```bash
 cd Local_Web_Project
 ```
 
-3. Locate the Vagrantfile and check if there are any VMs already running:
+3. **Locate the Vagrantfile and check if there are any VMs already running:**
 
 ```bash
 vagrant global-status
 ```
 
-4. If no VMs are running, bring up the VM:
+4. **If no VMs are running, bring up the VM:**
 
 ```bash
 vagrant up
 ```
 
-![globalstatus_and_error](https://github.com/aclockworkobi9/Local_Web_Project/assets/146419037/583c2d99-ef4d-4983-92e9-2e175dd7fc4e)
-if you get hostmanager error then install the plugin with
+If you encounter a hostmanager error, install the plugin using:
+
 ```bash
 vagrant plugin install vagrant-hostmanager
 ```
-
 
 ## Login to the Database VM
 
@@ -73,7 +74,6 @@ After logging in, verify the hosts entry to ensure it includes the necessary IP 
 ```bash
 cat /etc/hosts
 ```
-![db01ssh](https://github.com/aclockworkobi9/Local_Web_Project/assets/146419037/185f43c5-eaba-4dfd-9bb9-2ac924ebad7e)
 
 If the entries are missing, update the `/etc/hosts` file accordingly.
 
@@ -129,8 +129,6 @@ After securing the installation, log in to MySQL as root user to create a databa
 ```bash
 mysql -u root -padmin123
 ```
-![mysqlsetup](https://github.com/aclockworkobi9/Local_Web_Project/assets/146419037/cd5cbcbe-47e4-4f94-b68b-76e96b617ed7)
-
 
 Inside MySQL, execute the following commands:
 
@@ -166,13 +164,10 @@ After completing the database setup, restart the MariaDB server:
 ```bash
 sudo systemctl restart mariadb
 ```
+
 Now, your database is set up and ready to use!
-![statusmariadb](https://github.com/aclockworkobi9/Local_Web_Project/assets/146419037/b23b7295-728c-4615-b1a5-b7ce512f01a4)
 
-You can add the following steps to your README.md file to guide users on how to login to the Memcache VM and perform the necessary tasks:
-
-```markdown
-## Login to the Memcache VM
+## Log into the Memcache VM
 
 To log in to the Memcache VM, use the following command:
 
@@ -244,6 +239,8 @@ vagrant ssh rmq01
 
 ## Verify Hosts Entry
 
+
+
 After logging in, verify the hosts entry to ensure it includes the necessary IP and hostnames:
 
 ```bash
@@ -292,7 +289,6 @@ sudo systemctl restart rabbitmq-server
 ```
 
 Now, your RabbitMQ server is set up with a user 'test' having administrative privilege!
-
 
 ## Log into the Tomcat VM
 
@@ -435,24 +431,26 @@ sudo systemctl enable tomcat
 
 ## Code Build & Deploy (app01)
 
-## Download Source Code
+### Download Source Code
 
 Clone the source code repository:
 
 ```bash
-git clone -b main [https://github.com/hkhcoder/vprofile-project.git](https://github.com/aclockworkobi9/Local_Web_Project.git)
+git clone -b main https://github.com/aclockworkobi9/Local_Web_Project.git
 ```
 
-## Update Configuration
+### Update Configuration
 
-Navigate to the project directory and update the configuration file `application.properties` with backend server details:
+Navigate to the project directory and update the configuration file `application.properties` with backend server details
+
+:
 
 ```bash
 cd Local_Web_project
 vim src/main/resources/application.properties
 ```
 
-## Build Code
+### Build Code
 
 Build the code inside the repository (`Local_Web_project`) using Maven:
 
@@ -460,7 +458,7 @@ Build the code inside the repository (`Local_Web_project`) using Maven:
 mvn install
 ```
 
-## Deploy Artifact
+### Deploy Artifact
 
 Stop the Tomcat service and deploy the artifact:
 
@@ -474,7 +472,6 @@ sudo systemctl restart tomcat
 ```
 
 Now, your updated code is built and deployed successfully on the app01 VM!
-
 
 ## Log into the Nginx VM
 
@@ -566,24 +563,21 @@ Now, your Nginx server is configured to proxy requests to the vproapp running on
 
 To access the web application, follow these steps:
 
-*Open a Web Browser*: 
+**1. Open a Web Browser:** 
    - Launch your preferred web browser on your computer.
 
-**Enter the IP Address or Domain Name**:
+**2. Enter the IP Address or Domain Name:**
    - In the address bar of your web browser, enter the IP address or domain name associated with your Nginx VM.
    - If you're using an IP address, it should look something like `http://xxx.xxx.xxx.xxx`.
-   
-**Accessing the Web Application**:
+
+**3. Accessing the Web Application:**
    - You should now be directed to the web application hosted on your Nginx VM. Interact with the web application as needed.
 
 Now, you can access and use your web application through your web browser!
 
+```
+![validation1](https://github.com/aclockworkobi9/Local_Web_Project/assets/146419037/42e072cf-8a8c-4a6a-8ca8-fb689acd8ed3)
+![validation](https://github.com/aclockworkobi9/Local_Web_Project/assets/146419037/ebc62b2d-f0c8-49e7-aaad-9c1a90a777bd)
 
 
-
-![validation1](https://github.com/aclockworkobi9/Local_Web_Project/assets/146419037/78a86cc9-2ce6-4336-b055-0869af97d8ac)
-![validation](https://github.com/aclockworkobi9/Local_Web_Project/assets/146419037/b10273cd-a27a-4e4c-98c8-daeb3a02b8f9)
-
-
-
-
+This should provide a comprehensive guide for users to set up and access the local web project using GitHub-friendly markdown formatting. Let me know if you need further assistance!
