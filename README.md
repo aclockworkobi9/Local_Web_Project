@@ -74,6 +74,7 @@ After logging in, verify the hosts entry to ensure it includes the necessary IP 
 ```bash
 cat /etc/hosts
 ```
+![db01ssh](https://github.com/aclockworkobi9/Local_Web_Project/assets/146419037/32125097-5811-4e37-9715-41231c346d82)
 
 If the entries are missing, update the `/etc/hosts` file accordingly.
 
@@ -121,6 +122,7 @@ mysql_secure_installation
 ## Note
 
 During the `mysql_secure_installation` process, you will be prompted to set the root password. For this guide, we'll use 'admin123' as the root password.
+![mysqlsetup](https://github.com/aclockworkobi9/Local_Web_Project/assets/146419037/7d4c44ad-4ae7-4133-b3b7-b097a07a1c32)
 
 ## Set Up Database Name and Users
 
@@ -138,6 +140,7 @@ GRANT ALL PRIVILEGES ON accounts.* TO 'admin'@'%' IDENTIFIED BY 'admin123';
 FLUSH PRIVILEGES;
 EXIT;
 ```
+![accountsdatabase](https://github.com/aclockworkobi9/Local_Web_Project/assets/146419037/2b969d2d-c104-49ee-9043-cf0dee304b9f)
 
 ## Download Source Code & Initialize Database
 
@@ -489,6 +492,8 @@ After logging in, verify the hosts entry to ensure it includes the necessary IP 
 ```bash
 cat /etc/hosts
 ```
+![web01ping](https://github.com/aclockworkobi9/Local_Web_Project/assets/146419037/d346deb3-6fa6-451c-9590-5591fd7e74a3)
+
 
 If the entries are missing, update the `/etc/hosts` file accordingly.
 
@@ -575,9 +580,9 @@ To access the web application, follow these steps:
 
 Now, you can access and use your web application through your web browser!
 
-```
+
 ![validation1](https://github.com/aclockworkobi9/Local_Web_Project/assets/146419037/42e072cf-8a8c-4a6a-8ca8-fb689acd8ed3)
 ![validation](https://github.com/aclockworkobi9/Local_Web_Project/assets/146419037/ebc62b2d-f0c8-49e7-aaad-9c1a90a777bd)
 
 
-This should provide a comprehensive guide for users to set up and access the local web project using GitHub-friendly markdown formatting. Let me know if you need further assistance!
+
